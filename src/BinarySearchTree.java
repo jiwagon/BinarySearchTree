@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import static java.lang.Math.*;
 
-public class BinarySearchTree <T extends Comparable<T>>{
+public class BinarySearchTree {
     protected Node<Album> root;
 
     public BinarySearchTree() {
