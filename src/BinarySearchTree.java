@@ -96,6 +96,27 @@ public class BinarySearchTree {
         return false;
     }
 
+//    public String inOrderTraversal(){
+//        return this.inOrder(this.root);
+//    }
+//
+//    private String inOrder(Node current){
+//        StringBuilder stringBuilder = new StringBuilder();
+//
+//        if(current != null){
+//            //go left first because this is in order
+//            stringBuilder.append(this.inOrder(current.leftChild));
+//
+//            //append the current node
+//            stringBuilder.append(current.data);
+//            stringBuilder.append(" ");
+//
+//            //go right
+//            stringBuilder.append(this.inOrder(current.rightChild));
+//        }
+//        return stringBuilder.toString();
+//    }
+
     public ArrayList<Album> getOrderArrayAlbum(){
         ArrayList<Node> node_list = this.getOrderArrayNode();
         ArrayList<Album> result = new ArrayList<>();
