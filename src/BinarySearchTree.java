@@ -37,7 +37,7 @@ public class BinarySearchTree {
             }
             if (current.data.compareTo(data) == 0) {
                 result.data = current.data;
-                current.data = minValue(current.rightChild, current.data);
+                current.data = minValue(current.rightChild, current);
                 return result;
             }
             if (current.data.compareTo(data) == 1) {
