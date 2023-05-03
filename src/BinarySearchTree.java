@@ -48,7 +48,7 @@ public class BinarySearchTree {
         }
         // throw an IllegalArgumentException if it doesn't exist
         catch (Exception e){
-            System.out.println("This Album to delete is not in the tree!!");
+            System.out.println("This Album to delete is not in the tree!");
         }
         return null;
     }
@@ -98,26 +98,44 @@ public class BinarySearchTree {
         return false;
     }
 
-//    public String inOrderTraversal(){
-//        return this.inOrder(this.root);
-//    }
-//
-//    private String inOrder(Node current){
-//        StringBuilder stringBuilder = new StringBuilder();
-//
-//        if(current != null){
-//            //go left first because this is in order
-//            stringBuilder.append(this.inOrder(current.leftChild));
-//
-//            //append the current node
-//            stringBuilder.append(current.data);
-//            stringBuilder.append(" ");
-//
-//            //go right
-//            stringBuilder.append(this.inOrder(current.rightChild));
-//        }
-//        return stringBuilder.toString();
-//    }
+    // Rebalances an unbalanced tree
+    public BinarySearchTree rebalance() {
+        ArrayList<Node> old_tree = this.getOrderArrayNode();
+        BinarySearchTree new_tree = new BinarySearchTree();
+        Integer size = old_tree.size();
+        Integer middle = size / 2;
+        Node<Album> middle_node = old_tree.get(middle);
+        new_tree.insert(middle_node.data);
+        old_tree.remove(size / 2);
+        for(int i =0; i< old_tree.size();i++){
+            new_tree.insert((Album) old_tree.get(i).data);
+        }
+        // Return a new balanced tree instance
+        return new_tree;
+    }
+
+    public String inOrder(){
+        return this.inOrder(this.root);
+    }
+
+    // Use the inOrder() traversal to insert a node
+    // using a recursive binary algorithm to insert into the new tree
+    private String inOrder(Node current){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if(current != null){
+            //go left first because this is in order
+            stringBuilder.append(this.inOrder(current.leftChild));
+
+            //append the current node
+            stringBuilder.append(current.data);
+            stringBuilder.append(" ");
+
+            //go right
+            stringBuilder.append(this.inOrder(current.rightChild));
+        }
+        return stringBuilder.toString();
+    }
 
     public ArrayList<Album> getOrderArrayAlbum(){
         ArrayList<Node> nodes = this.getOrderArrayNode();
@@ -148,19 +166,68 @@ public class BinarySearchTree {
         return result;
     }
 
-    // Rebalances an unbalanced tree
-    public BinarySearchTree rebalance() {
-        ArrayList<Node> old_tree = this.getOrderArrayNode();
-        BinarySearchTree new_tree = new BinarySearchTree();
-        Integer size = old_tree.size();
-        Integer middle = size / 2;
-        Node<Album> middle_node = old_tree.get(middle);
-        new_tree.insert(middle_node.data);
-        old_tree.remove(size / 2);
-        for(int i =0; i< old_tree.size();i++){
-            new_tree.insert((Album) old_tree.get(i).data);
-        }
-        // Return a new balanced tree instance
-        return new_tree;
+    public int getMaxDepth(){
+        return getMaxDepthHelper(this.root);
     }
+
+    public int getMaxDepthHelper(Node current){
+        if(current == null){
+            return 0;
+        }
+        int left = getMaxDepthHelper(current.leftChild);
+        int right = getMaxDepthHelper(current.rightChild);
+        if(left > right){
+            return 1+left;
+        }
+        else{
+            return 1+right;
+        }
+    }
+    // Get which position contain a node.
+    // Return two arraylist, one contain all the position, one contain the node associate with the position.
+    public ArrayList<ArrayList> getPosition(){
+        return  getPositionHelper(this.root, 0);
+    }
+
+    private ArrayList<ArrayList> getPositionHelper(Node current, int position){
+        if(current  != null) {
+            ArrayList<Integer> position_list = new ArrayList<>();
+            ArrayList<Node> content = new ArrayList<>();
+            ArrayList<ArrayList> result = new ArrayList<>();
+
+            position_list.add(position);
+            content.add(current);
+
+            if(current.leftChild != null) {
+                ArrayList<ArrayList> left_list = getPositionHelper(current.leftChild, position * 2 + 1);
+                position_list.addAll(left_list.get(0));
+                content.addAll(left_list.get(1));
+            }
+            if(current.rightChild != null){
+                ArrayList<ArrayList> right_list = getPositionHelper(current.rightChild,position*2+2);
+                position_list.addAll(right_list.get(0));
+                content.addAll(right_list.get(1));
+            }
+
+            result.add(position_list);
+            result.add(content);
+
+            return result;
+        }
+        return null;
+
+    }
+
+    public ArrayList<Album> partition(Album data){
+        ArrayList<Album> compared = new ArrayList<Album>();
+        ArrayList<Node> list = getOrderArrayNode();
+        for(int i =0; i< list.size(); i++){
+            if(data.compareTo(list.get(i).data) <= 0){
+                compared.add(list.get(i).data);
+            }
+        }
+        return compared;
+
+    }
+
 }

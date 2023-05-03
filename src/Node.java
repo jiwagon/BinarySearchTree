@@ -1,10 +1,10 @@
-public class Node <Album>{
+public class Node <T>{
 
     Album data;
 
-    Node<Album> leftChild;
+    Node<T> leftChild;
 
-    Node<Album> rightChild;
+    Node<T> rightChild;
 
     // constructor
     public Node(Album data) {

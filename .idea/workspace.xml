@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9d7193-4f53-4e87-a862-da441f3471ab" name="Changes" comment="functional contains and containsHelper">
+    <list default="true" id="fe9d7193-4f53-4e87-a862-da441f3471ab" name="Changes" comment="updated rebalance() function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinarySearchTree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BinarySearchTree.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTreeTest.java" afterDir="false" />
     </list>
@@ -78,7 +79,28 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.BinarySearchTreeTest.rebalance">
+  <component name="RunManager" selected="JUnit.BinarySearchTreeTest.delete">
+    <configuration name="BinarySearchTreeTest.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BinarySearchTree" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
+      <option name="METHOD_NAME" value="delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinarySearchTreeTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="BinarySearchTree" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BinarySearchTreeTest.insertNode" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BinarySearchTree" />
       <option name="PACKAGE_NAME" value="" />
@@ -105,6 +127,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BinarySearchTreeTest.delete" />
+        <item itemvalue="TestNG.BinarySearchTreeTest" />
         <item itemvalue="TestNG.BinarySearchTreeTest.rebalance" />
         <item itemvalue="TestNG.BinarySearchTreeTest.insertNode" />
       </list>
@@ -120,7 +144,7 @@
       <updated>1681133651600</updated>
       <workItem from="1681133739550" duration="2026000" />
       <workItem from="1683133328688" duration="1491000" />
-      <workItem from="1683146896311" duration="4321000" />
+      <workItem from="1683146896311" duration="5485000" />
     </task>
     <task id="LOCAL-00001" summary="Reused the Album class from the last assignment">
       <created>1683147181624</created>
@@ -185,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683150354009</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updated rebalance() function">
+      <created>1683151266660</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683151266660</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +243,7 @@
     <MESSAGE value="got rid of unused setters" />
     <MESSAGE value="updated insertNode test cases" />
     <MESSAGE value="functional contains and containsHelper" />
-    <option name="LAST_COMMIT_MESSAGE" value="functional contains and containsHelper" />
+    <MESSAGE value="updated rebalance() function" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated rebalance() function" />
   </component>
 </project>
