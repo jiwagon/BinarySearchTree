@@ -1,32 +1,35 @@
 import java.util.ArrayList;
+import static java.lang.Math.*;
 
-public class BinarySearchTree {
+public class BinarySearchTree <T extends Comparable<T>>{
+    protected Node<Album> root;
 
-    //Attribute
-    Node<Album> root;
-
-    //Constructor
     public BinarySearchTree() {
         this.root = null;
     }
 
-    public Node<Album> insertNode(Node<Album> current, Album data) {
-        if (current != null) {
-            if (current.data.compareTo(data) > 0)
-                current = current.leftChild;
-            else if (current.data.compareTo(data) < 0)
-                current = current.rightChild;
-        }
-        else {
-            current = new Node<>(data);
-        }
-        return current;
-    }
     public void insert(Album data) {
         this.root = insertNode(this.root, data);
     }
 
-    public Node deleteNode(Node<Album> current, Album data){
+    private Node insertNode(Node current, Album data) {
+        //if the current is null, just return the node
+        if (current == null) {
+            return new Node(data);
+        }
+        if (data.compareTo(current.data) == -1) {
+            current.left = this.insertNode(current.left, data);
+        } else if (data.compareTo(current.data) == 1) {
+            current.right = this.insertNode(current.right, data);
+        }
+        return current;
+    }
+
+    public Node delete(Album data){
+        return deleteNode(this.root, data);
+    }
+
+    public Node deleteNode(Node current, Album data){
         Node<Album> result = new Node<>(null);
         try{
             if (current == null) {
@@ -34,70 +37,41 @@ public class BinarySearchTree {
             }
             if (current.data.compareTo(data) == 0) {
                 result.data = current.data;
-                current.data = findMinValue(current.rightChild, current);
+                current.data = findMinValue(current.right, current);
                 return result;
             }
-            // delete the item if it exists
             if (current.data.compareTo(data) == 1) {
-                return deleteNode(current.leftChild, data);
+                return deleteNode(current.left, data);
             } else {
-                return deleteNode(current.rightChild, data);
+                return deleteNode(current.right, data);
             }
-        }
-        // throw an IllegalArgumentException if it doesn't exist
-        catch (Exception e){
-            System.out.println("This Album to delete is not in the tree!");
+        }catch (Exception e){
+            System.out.println("This Album to delete is not in the tree!!");
         }
         return null;
     }
-    // this should run in O(log n) time
-    public Node delete(Album data){
-        return deleteNode(this.root, data);
-    }
 
-    public Album findMinValue(Node<Album> curr_root, Node<Album> pre_root){
-        Album minimum = curr_root.data;
-        while (curr_root.leftChild != null){
-            minimum = curr_root.leftChild.data;
-            pre_root = curr_root;
-            curr_root = curr_root.leftChild;
-        }
-        if(curr_root.rightChild != null){
-            pre_root.rightChild = curr_root.rightChild;
-        }
-        else{
-            pre_root.data = curr_root.data;
-            pre_root.rightChild = curr_root.rightChild;
-        }
-        return minimum;
-    }
-
-    // Return true/false
-    // True if the data is in the tree and false if it isn't
     public boolean contains(Album data){
         return this.containsHelper(this.root, data);
     }
 
-    public boolean containsHelper(Node<Album> current, Album data){
+    private boolean containsHelper(Node current, Album data){
         if(current != null){
-            // Return true if the data is in the tree
             if(current.data == data){
                 return true;
             }else{
                 if(data.compareTo(current.data) == 1){
-                    return containsHelper(current.rightChild, data);
+                    return containsHelper(current.right, data);
                 }
                 else{
-                    return containsHelper(current.leftChild, data);
+                    return containsHelper(current.left, data);
                 }
             }
         }
-        // Return false if the data isn't in the tree
         return false;
     }
 
-    // Rebalances an unbalanced tree
-    public BinarySearchTree rebalance() {
+    public BinarySearchTree rebalance(){
         ArrayList<Node> old_tree = this.getOrderArrayNode();
         BinarySearchTree new_tree = new BinarySearchTree();
         Integer size = old_tree.size();
@@ -106,44 +80,58 @@ public class BinarySearchTree {
         new_tree.insert(middle_node.data);
         old_tree.remove(size / 2);
         for(int i =0; i< old_tree.size();i++){
-            new_tree.insert((Album) old_tree.get(i).data);
+            new_tree.insert(old_tree.get(i).data);
         }
-        // Return a new balanced tree instance
         return new_tree;
     }
 
-    public String inOrder(){
-        return this.inOrder(this.root);
+    public Album findMinValue(Node curr_root, Node pre_root){
+        Album minimum = curr_root.data;
+        while (curr_root.left != null){
+            minimum = curr_root.left.data;
+            pre_root = curr_root;
+            curr_root = curr_root.left;
+        }
+        if(curr_root.right != null){
+            pre_root.right = curr_root.right;
+        }
+        else{
+            pre_root.data = curr_root.data;
+            pre_root.right = curr_root.right;
+        }
+        return minimum;
     }
 
-    // Use the inOrder() traversal to insert a node
-    // using a recursive binary algorithm to insert into the new tree
-    private String inOrder(Node current){
+    public String inOrderTraversal(){
+        return this.inOrderTraversalNode(this.root);
+    }
+
+    private String inOrderTraversalNode(Node current){
         StringBuilder stringBuilder = new StringBuilder();
 
         if(current != null){
             //go left first because this is in order
-            stringBuilder.append(this.inOrder(current.leftChild));
+            stringBuilder.append(this.inOrderTraversalNode(current.left));
 
             //append the current node
             stringBuilder.append(current.data);
             stringBuilder.append(" ");
 
             //go right
-            stringBuilder.append(this.inOrder(current.rightChild));
+            stringBuilder.append(this.inOrderTraversalNode(current.right));
         }
         return stringBuilder.toString();
     }
 
     public ArrayList<Album> getOrderArrayAlbum(){
-        ArrayList<Node> nodes = this.getOrderArrayNode();
+        ArrayList<Node> node_list = this.getOrderArrayNode();
         ArrayList<Album> result = new ArrayList<>();
-        for(int i = 0;i < nodes.size();i++){
-            result.add((Album) nodes.get(i).data);
+        for(int i = 0;i < node_list.size();i++){
+            result.add(node_list.get(i).data);
         }
         return result;
     }
-    // Get the data of the tree through an ArrayList format
+    // Get the data of the tree in ArrayList Format
     public ArrayList<Node> getOrderArrayNode(){
         return this.getOrderArrayHelper(this.root);
     }
@@ -152,14 +140,14 @@ public class BinarySearchTree {
         ArrayList<Node> result = new ArrayList<Node>();
 
         if(current != null){
-            // Go left first because this is in order
-            result.addAll(this.getOrderArrayHelper(current.leftChild));
+            //go left first because this is in order
+            result.addAll(this.getOrderArrayHelper(current.left));
 
-            // Append the current node
+            //append the current node
             result.add(current);
 
-            // Go right
-            result.addAll(this.getOrderArrayHelper(current.rightChild));
+            //go right
+            result.addAll(this.getOrderArrayHelper(current.right));
         }
         return result;
     }
@@ -172,8 +160,8 @@ public class BinarySearchTree {
         if(current == null){
             return 0;
         }
-        int left = getMaxDepthHelper(current.leftChild);
-        int right = getMaxDepthHelper(current.rightChild);
+        int left = getMaxDepthHelper(current.left);
+        int right = getMaxDepthHelper(current.right);
         if(left > right){
             return 1+left;
         }
@@ -181,6 +169,7 @@ public class BinarySearchTree {
             return 1+right;
         }
     }
+
     // Get which position contain a node.
     // Return two arraylist, one contain all the position, one contain the node associate with the position.
     public ArrayList<ArrayList> getPosition(){
@@ -196,13 +185,13 @@ public class BinarySearchTree {
             position_list.add(position);
             content.add(current);
 
-            if(current.leftChild != null) {
-                ArrayList<ArrayList> left_list = getPositionHelper(current.leftChild, position * 2 + 1);
+            if(current.left != null) {
+                ArrayList<ArrayList> left_list = getPositionHelper(current.left, position * 2 + 1);
                 position_list.addAll(left_list.get(0));
                 content.addAll(left_list.get(1));
             }
-            if(current.rightChild != null){
-                ArrayList<ArrayList> right_list = getPositionHelper(current.rightChild,position*2+2);
+            if(current.right != null){
+                ArrayList<ArrayList> right_list = getPositionHelper(current.right,position*2+2);
                 position_list.addAll(right_list.get(0));
                 content.addAll(right_list.get(1));
             }
@@ -226,6 +215,37 @@ public class BinarySearchTree {
         }
         return compared;
 
+    }
+
+    //Extra credit toString()
+    //Return a string representation
+    @Override
+    public String toString(){
+        int depth = getMaxDepth();
+        double total_node = Math.pow(2,depth)-1;
+        ArrayList<Node> result = new ArrayList<>();
+
+        ArrayList<ArrayList> tree_position = this.getPosition();
+        ArrayList<Node> nodes = tree_position.get(1);
+        ArrayList<Integer> node_posotion = tree_position.get(0);
+
+        for(int i = 0; i<total_node; i++){
+            if(node_posotion.contains(i)){
+                int index = node_posotion.indexOf(i);
+                result.add(nodes.get(index));
+            }
+            else{
+                result.add(null);
+            }
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0; i<result.size();i++){
+            stringBuilder.append(result.get(i));
+            stringBuilder.append(" ");
+        }
+
+        return stringBuilder.toString();
     }
 
 }

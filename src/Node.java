@@ -1,15 +1,16 @@
-public class Node <T>{
-
+public class Node<T> {
+    Node<T> left;
+    Node<T> right;
     Album data;
 
-    Node<T> leftChild;
-
-    Node<T> rightChild;
-
-    // constructor
-    public Node(Album data) {
+    public Node(Album data){
         this.data = data;
-        this.leftChild = null;
-        this.rightChild = null;
+        this.left = null;
+        this.right = null;
+    }
+
+    @Override
+    public String toString(){
+        return data.toString();
     }
 }
