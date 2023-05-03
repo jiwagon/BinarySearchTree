@@ -70,4 +70,24 @@ public class BinarySearchTree {
         }
         return minimum;
     }
+
+    public boolean contains(Album data){
+        return this.containsHelper(this.root, data);
+    }
+
+    public boolean containsHelper(Node<Album> current, Album data){
+        if(current != null){
+            if(current.data == data){
+                return true;
+            }else{
+                if(data.compareTo(current.data) == 1){
+                    return containsHelper(current.rightChild, data);
+                }
+                else{
+                    return containsHelper(current.leftChild, data);
+                }
+            }
+        }
+        return false;
+    }
 }
