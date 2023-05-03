@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class BinarySearchTree {
 
@@ -71,12 +72,15 @@ public class BinarySearchTree {
         return minimum;
     }
 
+    // Return true/false
+    // True if the data is in the tree and false if it isn't
     public boolean contains(Album data){
         return this.containsHelper(this.root, data);
     }
 
     public boolean containsHelper(Node<Album> current, Album data){
         if(current != null){
+            // Return true if the data is in the tree
             if(current.data == data){
                 return true;
             }else{
@@ -88,6 +92,36 @@ public class BinarySearchTree {
                 }
             }
         }
+        // Return false if the data isn't in the tree
         return false;
+    }
+
+    public ArrayList<Album> getOrderArrayAlbum(){
+        ArrayList<Node> node_list = this.getOrderArrayNode();
+        ArrayList<Album> result = new ArrayList<>();
+        for(int i = 0;i < node_list.size();i++){
+            result.add((Album) node_list.get(i).data);
+        }
+        return result;
+    }
+    // Get the data of the tree in ArrayList Format
+    public ArrayList<Node> getOrderArrayNode(){
+        return this.getOrderArrayHelper(this.root);
+    }
+
+    private ArrayList<Node> getOrderArrayHelper(Node current){
+        ArrayList<Node> result = new ArrayList<Node>();
+
+        if(current != null){
+            //go left first because this is in order
+            result.addAll(this.getOrderArrayHelper(current.leftChild));
+
+            //append the current node
+            result.add(current);
+
+            //go right
+            result.addAll(this.getOrderArrayHelper(current.rightChild));
+        }
+        return result;
     }
 }

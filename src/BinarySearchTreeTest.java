@@ -25,7 +25,7 @@ public class BinarySearchTreeTest {
         result.add(a3);
         result.add(a1);
         //assertEquals(result, tree.getOrderArrayAlbum());
-        //System.out.println(tree.getOrderArrayNode());
+        System.out.println(tree.getOrderArrayNode());
         System.out.println(tree);
     }
 }
