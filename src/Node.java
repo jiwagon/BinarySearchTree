@@ -1,14 +1,14 @@
 public class Node <Album>{
 
-    Album album;
+    Album data;
 
     Node<Album> leftChild;
 
     Node<Album> rightChild;
 
     // constructor
-    public Node(Album album1) {
-        this.album = album1;
+    public Node(Album data) {
+        this.data = data;
         this.leftChild = null;
         this.rightChild = null;
     }
