@@ -25,10 +25,6 @@ public class BinarySearchTree {
         this.root = insertNode(this.root, data);
     }
 
-    public Node delete(Album data){
-        return deleteNode(this.root, data);
-    }
-
     public Node deleteNode(Node<Album> current, Album data){
         Node<Album> result = new Node<>(null);
         try{
@@ -40,15 +36,22 @@ public class BinarySearchTree {
                 current.data = minValue(current.rightChild, current);
                 return result;
             }
+            // delete the item if it exists
             if (current.data.compareTo(data) == 1) {
                 return deleteNode(current.leftChild, data);
             } else {
                 return deleteNode(current.rightChild, data);
             }
-        }catch (Exception e){
+        }
+        // throw an IllegalArgumentException if it doesn't exist
+        catch (Exception e){
             System.out.println("This Album to delete is not in the tree!!");
         }
         return null;
+    }
+    // this should run in O(log n) time
+    public Node delete(Album data){
+        return deleteNode(this.root, data);
     }
 
     public Album minValue(Node<Album> curr_root, Node<Album> pre_root){
