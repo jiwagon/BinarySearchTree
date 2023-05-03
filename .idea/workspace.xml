@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9d7193-4f53-4e87-a862-da441f3471ab" name="Changes" comment="updated insertNode test cases">
+    <list default="true" id="fe9d7193-4f53-4e87-a862-da441f3471ab" name="Changes" comment="functional contains and containsHelper">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BinarySearchTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +78,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.BinarySearchTreeTest.rebalance">
     <configuration name="BinarySearchTreeTest.insertNode" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BinarySearchTree" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,8 +91,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BinarySearchTreeTest.rebalance" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="BinarySearchTree" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
+      <option name="METHOD_NAME" value="rebalance" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.BinarySearchTreeTest.rebalance" />
         <item itemvalue="TestNG.BinarySearchTreeTest.insertNode" />
       </list>
     </recent_temporary>
@@ -106,7 +120,7 @@
       <updated>1681133651600</updated>
       <workItem from="1681133739550" duration="2026000" />
       <workItem from="1683133328688" duration="1491000" />
-      <workItem from="1683146896311" duration="3400000" />
+      <workItem from="1683146896311" duration="4321000" />
     </task>
     <task id="LOCAL-00001" summary="Reused the Album class from the last assignment">
       <created>1683147181624</created>
@@ -164,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683149817481</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="functional contains and containsHelper">
+      <created>1683150354009</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683150354009</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +211,7 @@
     <MESSAGE value="added contains(data) and containsHelper(current, data)" />
     <MESSAGE value="got rid of unused setters" />
     <MESSAGE value="updated insertNode test cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated insertNode test cases" />
+    <MESSAGE value="functional contains and containsHelper" />
+    <option name="LAST_COMMIT_MESSAGE" value="functional contains and containsHelper" />
   </component>
 </project>

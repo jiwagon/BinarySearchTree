@@ -28,4 +28,28 @@ public class BinarySearchTreeTest {
         System.out.println(tree.getOrderArrayNode());
         System.out.println(tree);
     }
+
+    @Test
+    void rebalance() {
+        BinarySearchTree tree = new BinarySearchTree();
+        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list2 = new ArrayList<>();
+        list.add("Halsey");
+        list.add("Cashmere Cat");
+        list2.add("Kanzaki Iori");
+        Album a1 = new Album(1,list,"Dreamland",3);
+        Album a2 = new Album(2,list2,"Killian",4);
+        Album a3 = new Album(3,list,"Manic",5);
+        Album a4 = new Album(3,list2,"White Paper",15);
+        tree.insert(a1);
+        tree.insert(a2);
+        tree.insert(a3);
+        tree.insert(a4);
+        BinarySearchTree result = new BinarySearchTree();
+        result.insert(a3);
+        result.insert(a1);
+        result.insert(a4);
+        result.insert(a2);
+        assertEquals(result.toString(),tree.rebalance().toString());
+    }
 }

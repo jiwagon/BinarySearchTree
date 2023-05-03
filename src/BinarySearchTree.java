@@ -5,6 +5,8 @@ public class BinarySearchTree {
     //Attribute
     Node<Album> root;
 
+    Node<Album> data;
+
     //Constructor
     public BinarySearchTree() {
         root = null;
@@ -34,7 +36,7 @@ public class BinarySearchTree {
             }
             if (current.data.compareTo(data) == 0) {
                 result.data = current.data;
-                current.data = minValue(current.rightChild, current);
+                current.data = findMinValue(current.rightChild, current);
                 return result;
             }
             // delete the item if it exists
@@ -55,7 +57,7 @@ public class BinarySearchTree {
         return deleteNode(this.root, data);
     }
 
-    public Album minValue(Node<Album> curr_root, Node<Album> pre_root){
+    public Album findMinValue(Node<Album> curr_root, Node<Album> pre_root){
         Album minimum = curr_root.data;
         while (curr_root.leftChild != null){
             minimum = curr_root.leftChild.data;
@@ -118,14 +120,14 @@ public class BinarySearchTree {
 //    }
 
     public ArrayList<Album> getOrderArrayAlbum(){
-        ArrayList<Node> node_list = this.getOrderArrayNode();
+        ArrayList<Node> nodes = this.getOrderArrayNode();
         ArrayList<Album> result = new ArrayList<>();
-        for(int i = 0;i < node_list.size();i++){
-            result.add((Album) node_list.get(i).data);
+        for(int i = 0;i < nodes.size();i++){
+            result.add((Album) nodes.get(i).data);
         }
         return result;
     }
-    // Get the data of the tree in ArrayList Format
+    // Get the data of the tree through an ArrayList format
     public ArrayList<Node> getOrderArrayNode(){
         return this.getOrderArrayHelper(this.root);
     }
@@ -134,15 +136,31 @@ public class BinarySearchTree {
         ArrayList<Node> result = new ArrayList<Node>();
 
         if(current != null){
-            //go left first because this is in order
+            // Go left first because this is in order
             result.addAll(this.getOrderArrayHelper(current.leftChild));
 
-            //append the current node
+            // Append the current node
             result.add(current);
 
-            //go right
+            // Go right
             result.addAll(this.getOrderArrayHelper(current.rightChild));
         }
         return result;
+    }
+
+    // Rebalances an unbalanced tree
+    public BinarySearchTree rebalance() {
+        ArrayList<Node> old_tree = this.getOrderArrayNode();
+        BinarySearchTree new_tree = new BinarySearchTree();
+        Integer size = old_tree.size();
+        Integer middle = size / 2;
+        Node<Album> middle_node = old_tree.get(middle);
+        new_tree.insert(middle_node.data);
+        old_tree.remove(size / 2);
+        for(int i =0; i< old_tree.size();i++){
+            new_tree.insert((Album) old_tree.get(i).data);
+        }
+        // Return a new balanced tree instance
+        return new_tree;
     }
 }
