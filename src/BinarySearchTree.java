@@ -15,6 +15,13 @@ public class BinarySearchTree {
 
     public void insert(Node<Album> current, Album album1) {
         if (current != null) {
+            if (current.album.compareTo(album1) > 0)
+                current = current.leftChild;
+            else if (current.album.compareTo(album1) < 0)
+                current = current.rightChild;
+        }
+        else {
+            current = new Node<>(album1);
         }
     }
     public Node<Album> insert(Album album1) {
