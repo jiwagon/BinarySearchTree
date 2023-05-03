@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9d7193-4f53-4e87-a862-da441f3471ab" name="Changes" comment="update Album class">
+    <list default="true" id="fe9d7193-4f53-4e87-a862-da441f3471ab" name="Changes" comment="successful delete() test cases">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinarySearchTree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BinarySearchTree.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTreeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BinarySearchTreeTest.delete">
+  <component name="RunManager" selected="TestNG.BinarySearchTreeTest">
     <configuration name="BinarySearchTreeTest.contains" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BinarySearchTree" />
       <option name="PACKAGE_NAME" value="" />
@@ -101,21 +99,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinarySearchTreeTest.deleteNode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BinarySearchTree" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
-      <option name="METHOD_NAME" value="deleteNode" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BinarySearchTreeTest.partition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BinarySearchTree" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
       <option name="METHOD_NAME" value="partition" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinarySearchTreeTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BinarySearchTree" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
+      <option name="METHOD_NAME" value="testToString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.BinarySearchTreeTest" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.testToString" />
         <item itemvalue="JUnit.BinarySearchTreeTest.delete" />
         <item itemvalue="JUnit.BinarySearchTreeTest.contains" />
         <item itemvalue="JUnit.BinarySearchTreeTest.partition" />
-        <item itemvalue="JUnit.BinarySearchTreeTest.deleteNode" />
-        <item itemvalue="TestNG.BinarySearchTreeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -152,7 +150,7 @@
       <updated>1681133651600</updated>
       <workItem from="1681133739550" duration="2026000" />
       <workItem from="1683133328688" duration="1491000" />
-      <workItem from="1683146896311" duration="7341000" />
+      <workItem from="1683146896311" duration="9610000" />
     </task>
     <task id="LOCAL-00001" summary="Reused the Album class from the last assignment">
       <created>1683147181624</created>
@@ -238,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683153005925</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="successful delete() test cases">
+      <created>1683154263571</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683154263571</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +273,7 @@
     <MESSAGE value="updated rebalance() function" />
     <MESSAGE value="added partition() method" />
     <MESSAGE value="update Album class" />
-    <option name="LAST_COMMIT_MESSAGE" value="update Album class" />
+    <MESSAGE value="successful delete() test cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="successful delete() test cases" />
   </component>
 </project>

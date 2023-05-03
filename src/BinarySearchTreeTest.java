@@ -114,4 +114,35 @@ public class BinarySearchTreeTest {
         tree.insert(a4);
         assertEquals(a3,tree.delete(a3).data);
     }
+
+    @org.junit.Test
+    public void testToString() {
+        BinarySearchTree tree = new BinarySearchTree();
+        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list2 = new ArrayList<>();
+        list.add("Halsey");
+        list.add("Cashmere Cat");
+        list2.add("Kanzaki Iori");
+        Album a1 = new Album(1, list, "Dreamland", 8);
+        Album a2 = new Album(2, list2, "Killian", 4);
+        Album a3 = new Album(3, list, "Manic", 5);
+        Album a4 = new Album(3, list2, "White Paper", 6);
+        Album a5 = new Album(10, list2, "White Paper", 6);
+        tree.insert(a1);
+        String album1 = " 1: 8 -- [Halsey, Cashmere Cat]  ";
+        assertEquals(album1, tree.toString());
+
+        tree.insert(a2);
+        String a1and2_str = " 1: 8 -- [Halsey, Cashmere Cat]   2: 4 -- [Kanzaki Iori]  null ";
+        assertEquals(a1and2_str, tree.toString());
+
+        tree.insert(a3);
+        tree.insert(a4);
+        tree.insert(a5);
+        String all_str = " 1: 8 -- [Halsey, Cashmere Cat]  " +
+                " 2: 4 -- [Kanzaki Iori]  null null " +
+                " 3: 5 -- [Halsey, Cashmere Cat]  null null null null null " +
+                " 3: 6 -- [Kanzaki Iori]  null null null null ";
+        assertEquals(all_str, tree.toString());
+    }
 }

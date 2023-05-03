@@ -46,7 +46,7 @@ public class BinarySearchTree <T extends Comparable<T>>{
                 return deleteNode(current.right, data);
             }
         }catch (Exception e){
-            System.out.println("This Album to delete is not in the tree!!");
+            System.out.println("This Album to delete is not in the tree!");
         }
         return null;
     }
@@ -102,23 +102,23 @@ public class BinarySearchTree <T extends Comparable<T>>{
         return minimum;
     }
 
-    public String inOrderTraversal(){
-        return this.inOrderTraversalNode(this.root);
+    public String inOrder(){
+        return this.inOrder(this.root);
     }
 
-    private String inOrderTraversalNode(Node current){
+    private String inOrder(Node current){
         StringBuilder stringBuilder = new StringBuilder();
 
         if(current != null){
             //go left first because this is in order
-            stringBuilder.append(this.inOrderTraversalNode(current.left));
+            stringBuilder.append(this.inOrder(current.left));
 
             //append the current node
             stringBuilder.append(current.data);
             stringBuilder.append(" ");
 
             //go right
-            stringBuilder.append(this.inOrderTraversalNode(current.right));
+            stringBuilder.append(this.inOrder(current.right));
         }
         return stringBuilder.toString();
     }
@@ -140,13 +140,13 @@ public class BinarySearchTree <T extends Comparable<T>>{
         ArrayList<Node> result = new ArrayList<Node>();
 
         if(current != null){
-            //go left first because this is in order
+            // Go left first because this is in order
             result.addAll(this.getOrderArrayHelper(current.left));
 
-            //append the current node
+            // Append the current node
             result.add(current);
 
-            //go right
+            // Go right
             result.addAll(this.getOrderArrayHelper(current.right));
         }
         return result;
@@ -225,14 +225,17 @@ public class BinarySearchTree <T extends Comparable<T>>{
         double total_node = Math.pow(2,depth)-1;
         ArrayList<Node> result = new ArrayList<>();
 
-        ArrayList<ArrayList> tree_position = this.getPosition();
-        ArrayList<Node> nodes = tree_position.get(1);
-        ArrayList<Integer> node_posotion = tree_position.get(0);
+        ArrayList<ArrayList> tree_pos = this.getPosition();
+        ArrayList<Node> nodes = tree_pos.get(1);
+        ArrayList<Integer> node_pos = tree_pos.get(0);
 
-        for(int i = 0; i<total_node; i++){
-            if(node_posotion.contains(i)){
-                int index = node_posotion.indexOf(i);
+        for(int i = 0; i < total_node; i++){
+            if(node_pos.contains(i)){
+                int index = node_pos.indexOf(i);
                 result.add(nodes.get(index));
+                if (nodes.get(index).equals(nodes.size())) {
+                    break;
+                }
             }
             else{
                 result.add(null);
@@ -240,12 +243,10 @@ public class BinarySearchTree <T extends Comparable<T>>{
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i<result.size();i++){
-            stringBuilder.append(result.get(i));
-            stringBuilder.append(" ");
+        for(int i = 0; i < result.size();i++){
+            stringBuilder.append(result.get(i) + " ");
         }
 
         return stringBuilder.toString();
     }
-
 }
