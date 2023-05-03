@@ -21,20 +21,8 @@ public class Album implements Comparable<Album> {
         return ID;
     }
 
-    public void setID(int id){
-        this.ID = id;
-    }
-
     public ArrayList<String> getName(){
         return artistName;
-    }
-
-    public void setName(ArrayList<String> name){
-        this.artistName = name;
-    }
-
-    public String getTitle(){
-        return title;
     }
 
     public void setID(String title){
@@ -43,10 +31,6 @@ public class Album implements Comparable<Album> {
 
     public int getNumSong(){
         return numSongs;
-    }
-
-    public void setNumSong(int num){
-        this.numSongs = num;
     }
 
     public String getNameString(){

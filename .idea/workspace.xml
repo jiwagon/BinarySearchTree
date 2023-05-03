@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9d7193-4f53-4e87-a862-da441f3471ab" name="Changes" comment="functional deleteNode()" />
+    <list default="true" id="fe9d7193-4f53-4e87-a862-da441f3471ab" name="Changes" comment="added contains(data) and containsHelper(current, data)">
+      <change beforePath="$PROJECT_DIR$/src/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Album.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +86,7 @@
       <updated>1681133651600</updated>
       <workItem from="1681133739550" duration="2026000" />
       <workItem from="1683133328688" duration="1491000" />
-      <workItem from="1683146896311" duration="2054000" />
+      <workItem from="1683146896311" duration="2368000" />
     </task>
     <task id="LOCAL-00001" summary="Reused the Album class from the last assignment">
       <created>1683147181624</created>
@@ -114,7 +116,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683148928037</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated functional deleteNode()">
+      <created>1683149115401</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683149115401</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added contains(data) and containsHelper(current, data)">
+      <created>1683149199120</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683149199120</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +152,8 @@
     <MESSAGE value="updated insertNode()" />
     <MESSAGE value="updated deleteNode() &amp; added minValue()" />
     <MESSAGE value="functional deleteNode()" />
-    <option name="LAST_COMMIT_MESSAGE" value="functional deleteNode()" />
+    <MESSAGE value="updated functional deleteNode()" />
+    <MESSAGE value="added contains(data) and containsHelper(current, data)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added contains(data) and containsHelper(current, data)" />
   </component>
 </project>
