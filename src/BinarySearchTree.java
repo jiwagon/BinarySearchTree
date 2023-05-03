@@ -5,11 +5,9 @@ public class BinarySearchTree {
     //Attribute
     Node<Album> root;
 
-    Node<Album> data;
-
     //Constructor
     public BinarySearchTree() {
-        root = null;
+        this.root = null;
     }
 
     public Node<Album> insertNode(Node<Album> current, Album data) {

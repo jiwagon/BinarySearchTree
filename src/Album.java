@@ -21,8 +21,20 @@ public class Album implements Comparable<Album> {
         return ID;
     }
 
+    public void setID(int id){
+        this.ID = id;
+    }
+
     public ArrayList<String> getName(){
         return artistName;
+    }
+
+    public void setName(ArrayList<String> name){
+        this.artistName = name;
+    }
+
+    public String getTitle(){
+        return title;
     }
 
     public void setID(String title){
@@ -33,7 +45,11 @@ public class Album implements Comparable<Album> {
         return numSongs;
     }
 
-    public String getNameString(){
+    public void setNumSong(int num){
+        this.numSongs = num;
+    }
+
+        public String getNameString(){
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i< artistName.size()-1; i++){
             stringBuilder.append(String.format("%s, ",artistName.get(i)));
@@ -48,11 +64,9 @@ public class Album implements Comparable<Album> {
         if(this.numSongs > o.numSongs){
             return 1;
         }
-
-        else if(this.numSongs == o.numSongs){
+        else if (this.numSongs == o.numSongs){
             return 0;
         }
-
         else{
             return -1;
         }
