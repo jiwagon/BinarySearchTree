@@ -8,12 +8,7 @@ public class BinarySearchTree {
         root = null;
     }
 
-    //method overloading
-//    public Node<Album> insert(Node<Album> root, Album album1) {
-//        return root;
-//    }
-
-    public void insert(Node<Album> current, Album album1) {
+    public Node<Album> insertNode(Node<Album> current, Album album1) {
         if (current != null) {
             if (current.album.compareTo(album1) > 0)
                 current = current.leftChild;
@@ -23,11 +18,9 @@ public class BinarySearchTree {
         else {
             current = new Node<>(album1);
         }
+        return current;
     }
-    public Node<Album> insert(Album album1) {
-        //Node<Album> insertNode = new Node<>(album1);
-        //this.root = insert(this.root, album1);
-        insert(this.root, album1);
-        return this.root;
+    public void insert(Album album1) {
+        this.root = insertNode(this.root, album1);
     }
 }

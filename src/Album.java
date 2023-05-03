@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 
+// Reuse the Album class from the last assignment,
+// ensure that it implements comparable,
 public class Album implements Comparable<Album> {
     Integer ID;
     ArrayList<String> artistName;
     String title;
     Integer numSongs;
 
+    // it has a numerical ID, able to store multiple artists' names,
+    // a title, and have the number of songs on the album
     public Album(int id, ArrayList<String> name, String title, int num){
         this.ID = id;
         this.artistName = name;
@@ -54,6 +58,7 @@ public class Album implements Comparable<Album> {
         return stringBuilder.toString();
     }
 
+    // Compare the number of songs
     @Override
     public int compareTo(Album o) {
         if(this.numSongs > o.numSongs){
@@ -69,7 +74,7 @@ public class Album implements Comparable<Album> {
         }
     }
 
-    //return ID: NUM_SONGS -- [ARTISTS NAMES]
+    // The toString return ID: NUM_SONGS -- [ARTISTS NAMES]
     @Override
     public String toString(){
         StringBuilder stringBuilder = new StringBuilder();
